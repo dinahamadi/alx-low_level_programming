@@ -1,19 +1,20 @@
 #include "main.h"
 /**
- * print_numbers - check the code
+ * more_numbers - check the code
  *
  * Return: Nothing
  */
-void print_numbers(void)
+void more_numbers(void)
 {
-	int j;
-	char i;
+	int i, j;
 
 	for (j = 0; j < 10; j++)
 	{
-		for (i = '0'; i <= '9'; i++)
+		for (i = 0; i <= 14; i++)
 		{
-			_putchar(i);
+			if (i / 10 != 0)
+				_putchar('0' + 1);	
+			_putchar('0' + (i % 10));
 		}
 		_putchar('\n');
 	}
