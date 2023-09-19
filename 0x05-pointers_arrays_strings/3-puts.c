@@ -7,5 +7,12 @@
  */
 void _puts(char *str)
 {
-return (str);
+	int i = 0;
+
+	while (*str != '\0')
+	{
+		_putchar(str[i]);
+		str++;
+		i++
+	}
 }
