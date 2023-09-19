@@ -1,15 +1,16 @@
 #include "main.h"
 
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * puts2 - check the code
+ * @str: a string
+ * Return: no return.
  */
-int main(void)
+int puts2(char *str)
 {
-    char *str;
+	size_t j = 0;
 
-    str = "0123456789";
-    puts2(str);
-    return (0);
+	while (j < strlen(str))
+		if ((j % 2) == 0)
+			_putchar(s[j]);
+	_putchar('\n');
 }
