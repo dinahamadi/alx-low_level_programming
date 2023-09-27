@@ -12,11 +12,14 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 	if (n > strlen(src))
 		n = strlen(src);
-	if (strlen(src) > strlen(dest))
+	if (n > strlen(dest))
 	{
 		dest = malloc(sizeof(char) * (strlen(src) + 1));
 		if (dest == NULL)
+		{
+			free(dest);
 			return (NULL);
+		}
 	}
 	for (i = 0; i <= n; i++)
 		dest[i] = src[i];
