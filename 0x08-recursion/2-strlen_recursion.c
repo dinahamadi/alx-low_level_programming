@@ -1,7 +1,7 @@
 #include "main.h"
 /**
-*_strlen_recursion: check the code
-* @s: astring
+*_strlen_recursion - check the code
+* @s: a string
 * Return: an integer
 */
 
@@ -11,4 +11,4 @@ int _strlen_recursion(char* s)
 		return (0); 
 	else
 		return (1 + _strlen_recursion(s + 1));
-	}
+}
