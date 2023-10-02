@@ -4,7 +4,7 @@
 /**
  * _sqrt_helper - check the code
  * @n: an integer
- * @sqh: an integer
+ * @sqb: an integer
  * @sqh: an integer
  * Return: the natural square root.
  */
@@ -19,7 +19,7 @@ int _sqrt_helper(int sqb,int  sqh, int n)
 		return (mid);
 	if (mid * mid > n)
 		return (_sqrt_helper(sqb, mid - 1, n));
-	return (_sqrt_helper((mid + 1, sqh, n));
+	return (_sqrt_helper(mid + 1, sqh, n));
 }
 /**
  * _sqrt_recursion - check the code
@@ -32,5 +32,5 @@ int _sqrt_recursion(int n)
 		return (-1);
 	if (n == 1)
 		return (1);
-	return (_sqrt_helper(0, n / 2, n));
+	return (_sqrt_helper(0, 0, n));
 }
