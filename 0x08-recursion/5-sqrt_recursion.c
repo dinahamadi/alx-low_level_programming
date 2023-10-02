@@ -12,7 +12,7 @@ int _sqrt_helper(int sqb, int sqh, int n)
 {
 	int mid;
 
-	if (sqh - sqb < 0)
+	if (sqh < sqb)
 		return (-1);
 	mid = sqb + (sqh - sqb) / 2;
 	if (mid * mid == n)
