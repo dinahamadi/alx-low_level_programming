@@ -23,5 +23,5 @@ int is_palindrome(char *s)
 {
 	if (*s == '\0')
 		return (1);
-	return (palindrome_helper(1, strlen(s), s));
+	return (palindrome_helper(0, strlen(s), s));
 }
