@@ -8,7 +8,7 @@
  */
 int _sqrt_helper(int sq, int n)
 {
-	if (q < 1)
+	if (sq < 1)
 		return (-1);
 	else
 	{
