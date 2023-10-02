@@ -15,8 +15,7 @@ int _sqrt_helper(int sq, int n)
 		return (sq);
 	if (sq * sq > n)
 		return (_sqrt_helper(sq - 1, n));
-	if (sq * sq < n)
-		return (_sqrt_helper(sq + 1, n));
+	return (_sqrt_helper(sq + 1, n));
 }
 /**
  * _sqrt_recursion - check the code
