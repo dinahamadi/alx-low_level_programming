@@ -13,13 +13,9 @@ int wildcamp_helper(char* s1, char* s2, size_t ind1, size_t ind2)
 		return (0);
 	if (s1[ind1] == s2[ind2])
 		return (wildcamp_helper(s1, s2, ind1 + 1, ind2 + 1));
-	if (s1[ind1] != s2[ind2])
-	{
-		if (s2[ind2] != '*')
-			return (0);
-		else
-			return (wildcamp_helper(s1, s2, ind1, ind2 + 1) + wildcamp_helper(s1, s2, ind1 + 1, ind2 + 1));
-	}
+	if (s2[ind2] != '*')
+		return (0);
+	return (wildcamp_helper(s1, s2, ind1, ind2 + 1) + wildcamp_helper(s1, s2, ind1 + 1, ind2 + 1));
 }
 /**
  * wildcamp - check the code
@@ -33,11 +29,7 @@ int wildcmp(char* s1, char* s2)
 
 	if (s1[ind1] == s2[ind2])
 		return (wildcamp_helper(s1, s2, ind1 + 1, ind2 + 1));
-	if (s1[ind1] != s2[ind2])
-	{
-		if (s2[ind2] != '*')
-			return (0);
-		else
-			return (wildcamp_helper(s1, s2, ind1, ind2 + 1) + wildcamp_helper(s1, s2, ind1 + 1, ind2 + 1));
-	}
+	if (s2[ind2] != '*')
+		return (0);
+	return (wildcamp_helper(s1, s2, ind1, ind2 + 1) + wildcamp_helper(s1, s2, ind1 + 1, ind2 + 1));
 }
