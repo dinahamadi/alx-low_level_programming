@@ -8,11 +8,11 @@
  */
 int palindrome_helper(int index, int n, char *s)
 {
-	if (n <= 1)
+	if (n - index <= 1)
 		return	(1);
 	if (s[index] != s[n - 1])
 		return (0);
-	return (palindrome_helper(index + 1, n - 2, s));
+	return (palindrome_helper(index + 1, n - 1, s));
 }
 /**
  * is_palindrome - check the code
