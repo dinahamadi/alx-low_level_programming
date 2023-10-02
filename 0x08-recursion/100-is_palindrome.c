@@ -19,7 +19,7 @@ int palindrome_helper(int index, int n, char *s)
  * @s: a string
  * Return: 1 if palindrome 0 otherwise.
  */
-int is_palindrome(char* s)
+int is_palindrome(char *s)
 {
 	if (*s == '\0')
 		return (1);
