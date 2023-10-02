@@ -25,6 +25,6 @@ int is_prime_number(int n)
 	if (n < 0)
 		return (is_prime_number(-1 * n));
 	if (n == 1)
-		return (1);
+		return (0);
 	return (is_prime_helper(n - 1, n));
 }
