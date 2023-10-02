@@ -8,18 +8,15 @@
  * @sqh: an integer
  * Return: the natural square root.
  */
-int _sqrt_helper(int sqb, int sqh, int n)
+int _sqrt_helper(int sq, int n)
 {
-	int mid;
-
-	if (sqh < sqb)
+	if (sq == 0)
 		return (-1);
-	mid = sqb + (sqh - sqb) / 2;
-	if (mid * mid == n)
-		return (mid);
-	if (mid * mid > n)
-		return (_sqrt_helper(sqb, mid - 1, n));
-	return (_sqrt_helper(mid + 1, sqh, n));
+	if (sq * sq == n)
+		return (sq);
+	if (sq * sq < n)
+		return (_sqrt_helper(sq + sq / 2, n));
+	return (_sqrt_helper(sq + sq / 2, n));
 }
 /**
  * _sqrt_recursion - check the code
@@ -32,5 +29,5 @@ int _sqrt_recursion(int n)
 		return (-1);
 	if (n == 1)
 		return (1);
-	return (_sqrt_helper(1, n / 2, n));
+	return (_sqrt_helper(n / 2, n));
 }
