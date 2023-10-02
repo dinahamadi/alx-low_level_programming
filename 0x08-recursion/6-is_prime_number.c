@@ -1,18 +1,18 @@
 #include "main.h"
 /**
  * is_prime_helper - check the code
- * @p; an integer
- * @n; an integer
+ * @p: an integer
+ * @n: an integer
  * Return: 1 if true 0 otherwise.
  */
 int is_prime_helper(int p, int n)
 {
 	if (p == 1)
-		return(1);
+		return (1);
 	if (n % p == 0)
-			return (0);
+		return (0);
 	else
-		return is_prime_helper(p - 1, n);
+		return (is_prime_helper(p - 1, n));
 }
 
 /**
