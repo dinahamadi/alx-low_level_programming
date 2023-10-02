@@ -10,7 +10,7 @@ int palindrome_helper(int index, int n, char *s)
 {
 	if (n <= 1)
 		return	(1);
-	if (s[index] != s[n - index - 1])
+	if (s[index] != s[n - 1])
 		return (0);
 	return (palindrome_helper(index + 1, n - 2, s));
 }
