@@ -14,7 +14,7 @@ int _sqrt_helper(int sq, int n)
 	if (sq * sq == n)
 		return (sq);
 	if (sq * sq < n)
-		return (_sqrt_helper(sq + (sq / 2), n));
+		return (_sqrt_helper(sq + 1, n));
 	return (_sqrt_helper(sq - (sq / 2), n));
 }
 /**
