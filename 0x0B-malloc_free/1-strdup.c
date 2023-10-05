@@ -4,9 +4,9 @@
  * @str: a string
  * Return: a pointer to the new string.
  */
-char *_strdup(char* str)
+char *_strdup(char *str)
 {
-	char* s2;
+	char *s2;
 	int i = 0;
 
 	if (str == NULL)
