@@ -21,5 +21,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		((char *)p)[i] = 0;
 		i++;
 	}
+	((char*)p)[i] = '\0';
 	return (p);
 }
