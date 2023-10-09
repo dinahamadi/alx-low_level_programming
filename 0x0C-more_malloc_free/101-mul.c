@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int i, j;
-
+	long int result = 0;
 	if (argc != 3)
 	{
 		printf("Error\n");
@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 		j++;
 	}
 	if (atoi(argv[1]) < INT_MAX && atoi(argv[2]) < INT_MAX)
-		return (atoi(argv[1]) * atoi(argv[2]));
+		result = atoi(argv[1]) * atoi(argv[2]);
+	printf("%ld\n", result);
 	return (0);
 }
