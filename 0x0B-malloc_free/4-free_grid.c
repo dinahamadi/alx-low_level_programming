@@ -2,7 +2,7 @@
 
 /**
  * free_grid - check code
- * @**grid: a pointer to a two dim grid
+ * @grid: a pointer to a two dim grid
  * @height: height of the grid
  * Return: no return.
  */
