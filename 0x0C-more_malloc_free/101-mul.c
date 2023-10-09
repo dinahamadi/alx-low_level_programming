@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <limits.h>
 /**
  * main - check the code
  * @argc: number of arguments
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
 		}
 		j++;
 	}
-	if (argv[1] < INT_MAX && argv[2] < INT_MAX)
-		return (argv[1] * argv[2]);
+	if (atoi(argv[1]) < INT_MAX && atoi(argv[2]) < INT_MAX)
+		return (atoi(argv[1]) * atoi(argv[2]));
 	return (0);
 }
