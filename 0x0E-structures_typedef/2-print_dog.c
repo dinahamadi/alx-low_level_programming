@@ -9,8 +9,8 @@ void print_dog(struct dog *d)
 {
 	if (d == NULL)
 		return;
-	printf("Name: %s\n", strcmp(d->name,"") == 0 ? "nil" : d->name);
-	if (d->age == 0)
+	printf("Name: %s\n", strcmp(d->name, "") == 0 ? "nil" : d->name);
+	if (d->age <= 0)
 		printf("Age: %s\n", "nil");
 	else
 		printf("Age: %.6f\n", d->age);
