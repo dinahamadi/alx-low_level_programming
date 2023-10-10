@@ -2,6 +2,7 @@
 #define main_h
 #include <stdio.h>
 #include <stddef.h>
+#include <string.h>
 /**
  * struct dog - a new type that has dogs informations
  * @name: name of dog
