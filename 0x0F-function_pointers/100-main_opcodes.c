@@ -12,14 +12,14 @@ int main(int argc, char *argv[])
 	FILE *fil;
 	size_t let_r;
 	int i;
-	unsigned char *buffer;
+	char *buffer;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	if (atoi(argv[1]) <= 0)
+	if (atoi(argv[1]) < 0)
 	{
 		printf("Error\n");
 		return (2);
