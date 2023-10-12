@@ -11,10 +11,11 @@ void print_all(const char *const format, ...)
 	unsigned int i = 0;
 	char *str;
 	int valid = 1;
-	size_t len = strlen(format);
-
+	
+	if (format == NULL)
+		return;
 	va_start(args, format);
-	while (i < len)
+	while (i < strlen(format))
 	{
 		switch (format[i])
 		{
@@ -40,7 +41,7 @@ void print_all(const char *const format, ...)
 			valid = 0;
 			break;
 		}
-		if ((i < len - 1) && (valid == 1))
+		if ((i < strlen(format) - 1) && (valid == 1))
 			printf(", ");
 		i++;
 		valid = 1;
