@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	FILE *fil;
 	size_t let_r;
 	int i;
-	char *buffer;
+	unsigned char *buffer;
 
 	if (argc != 2)
 	{
