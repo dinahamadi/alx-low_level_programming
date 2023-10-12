@@ -26,10 +26,13 @@ int main(int argc, char *argv[])
 	}
 	fil = fopen(argv[0], "rb");
 	if (fil == NULL)
-		return (-1);
+	{
+		fclose(fil);
+		return (1);
+	}
 	buffer = malloc(sizeof(char) * atoi(argv[1]));
 	if (buffer == NULL)
-		return (-1);
+		return (1);
 	let_r = fread(buffer, sizeof(char), atoi(argv[1]), fil);
 	if (let_r == atoi(argv[1]))
 	{
@@ -42,5 +45,6 @@ int main(int argc, char *argv[])
 	}
 	printf("\n");
 	fclose(fil);
+	free(buffer);
 	return (0);
 }
