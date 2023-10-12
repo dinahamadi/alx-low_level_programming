@@ -7,9 +7,8 @@
 void print_all(const char *const format, ...)
 {
 	va_list args;
-	unsigned int i = 0;
+	unsigned int i = 0, valid = 1;
 	char *str;
-	int valid = 1;
 
 	if (format == NULL)
 		return;
