@@ -10,13 +10,13 @@ void print_all(const char *const format, ...)
 	unsigned int i = 0, valid = 1;
 	char *str;
 
-	if (format == NULL)
-		return;
-	va_start(args, format);
-	while (i < strlen(format))
+	while (format)
 	{
-		switch (format[i])
+		va_start(args, format);
+		while (i < strlen(format))
 		{
+			switch (format[i])
+			{
 			case 'i':
 				printf("%d", va_arg(args, int));
 				break;
@@ -31,19 +31,19 @@ void print_all(const char *const format, ...)
 				if (str == NULL)
 				{
 					printf("(nil)");
-					break;
 				}
 				printf("%s", str);
 				break;
 			default:
 				valid = 0;
 				break;
+			}
+			if ((i < strlen(format) - 1) && (valid == 1))
+				printf(", ");
+			i++;
+			valid = 1;
 		}
-		if ((i < strlen(format) - 1) && (valid == 1))
-			printf(", ");
-		i++;
-		valid = 1;
+		printf("\n");
+		va_end(args);
 	}
-	printf("\n");
-	va_end(args);
 }
