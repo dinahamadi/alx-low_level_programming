@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (2);
 	}
-	fil = fopen(argv[0], "rb");
+	fil = fopen(__FILE__, "rb");
 	if (fil == NULL)
 	{
 		fclose(fil);
