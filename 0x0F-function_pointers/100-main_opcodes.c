@@ -14,8 +14,16 @@ int main(int argc, char *argv[])
 	int i;
 	char *buffer;
 
-	if (atoi(argv[1]) <= 0 || argc != 2)
-		return (-1);
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	if (atoi(argv[1]) <= 0)
+	{
+		printf("Error\n");
+		return (2);
+	}
 	fil = fopen(argv[0], "rb");
 	if (fil == NULL)
 		return (-1);
