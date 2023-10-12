@@ -1,22 +1,20 @@
 #include "variadic_functions.h"
 /**
-* print_all - check the code
-* @format: a string
-* Return: No return.
-*/
+ * print_all - check the code
+ * @format: a string
+ * Return: No return.
+ */
 void print_all(const char *const format, ...)
 {
 	va_list args;
 	unsigned int i = 0, valid = 1;
 	char *str;
 
-	while (format)
+	va_start(args, format);
+	while (format && *format && (i < strlen(format)))
 	{
-		va_start(args, format);
-		while (i < strlen(format))
+		switch (format[i])
 		{
-			switch (format[i])
-			{
 			case 'i':
 				printf("%d", va_arg(args, int));
 				break;
@@ -37,13 +35,12 @@ void print_all(const char *const format, ...)
 			default:
 				valid = 0;
 				break;
-			}
-			if ((i < strlen(format) - 1) && (valid == 1))
-				printf(", ");
-			i++;
-			valid = 1;
 		}
-		printf("\n");
-		va_end(args);
+		if ((i < strlen(format) - 1) && (valid == 1))
+			printf(", ");
+		i++;
+		valid = 1;
 	}
+	printf("\n");
+	va_end(args);
 }
