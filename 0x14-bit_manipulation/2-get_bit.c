@@ -10,6 +10,8 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	int result;
 
+	if (index > sizeof(n))
+		return (-1);
 	result = (n >> index) % 2;
 	if (result != 0 && result != 1)
 		return (-1);
