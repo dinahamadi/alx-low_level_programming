@@ -44,5 +44,5 @@ int main(int argc, char *argv[])
 		"Error: Can't read from file %s\n", argv[1]), exit(EXIT_READ) : (void)NULL;
 	fdclose(fd1);
 	fdclose(fd2);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
