@@ -19,67 +19,43 @@ void fdclose(int fd)
  * main - check the code
  * @argc: number of arguments
  * @argv: arguments
- * Return:always 0
+ * Return: always 0
  */
 int main(int argc, char *argv[])
 {
-	ssize_t fd1, fd2;
-	ssize_t nwrite = 0, nread = 0;
-	char buff[1024];
-	char *file_from, *file_to;
+	ssize_t fd1, fd2, nwrite = 0, nread = 0;
+	char buff[1024], *file_from, *file_to;
 
-
-	if (argc != 3)
-	{
-		perror("Usage: cp file_from file_to\n");
-		exit(97);
-	}
+	argc != 3 ? perror(USAGE), exit(EXIT_USAGE) : (void)NULL;
 	file_from = strdup(argv[1]);
-	if (file_from == NULL || *file_from == '\0')
+	if (!file_from)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
+		exit(EXIT_READ);
 	}
 	fd1 = open(file_from, O_RDONLY);
-	if (fd1 == -1)
-	{
-		free(file_from);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	nread = read(fd1, buff, 1024);
-	if (nread == -1)
-	{
-		free(file_from);
-		fdclose(fd1);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
+	fd1 == -1 ? free(file_from), dprintf(STDERR_FILENO,
+		"Error: Can't read from file %s\n", file_from), exit(EXIT_READ) : (void)
+		NULL;
 	file_to = strdup(argv[2]);
-	if (file_to == NULL || *file_to == '\0')
-	{
-		free(file_from);
-		fdclose(fd1);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
+	file_to ? (void)NULL : free(file_from), fdclose(fd1), dprintf(STDERR_FILENO,
+		"Error: Can't write to %s\n", file_to), exit(EXIT_WRITE);
 	fd2 = open(file_to, O_TRUNC | O_CREAT | O_WRONLY, 0664);
-	if (fd2 == -1)
+	fd2 == -1 ? free(file_from), fdclose(fd1), dprintf(STDERR_FILENO,
+		"Error: Can't write to %s\n", file_to), free(file_to), exit(EXIT_WRITE) :
+		(void)NULL;
+	while ((nread = read(fd1, buff, 1024)) > 0)
 	{
-		free(file_from);
-		fdclose(fd1);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		free(file_to);
-		exit(99);
+		nwrite = write(fd2, buff, nread);
+		nwrite == -1 ? free(file_from), fdclose(fd1), dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", file_to), free(file_to), exit(EXIT_WRITE) :
+			(void)NULL;
 	}
-	nwrite = write(fd2, buff, nread);
-	if (nwrite == -1)
-	{
-		free(file_from);
-		fdclose(fd1);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		free(file_to);
-		exit(99);
-	}
+	nread == -1 ? free(file_from), fdclose(fd1), dprintf(STDERR_FILENO,
+		"Error: Can't read from file %s\n", file_from), exit(EXIT_READ) : (void)NULL;
+	free(file_from);
+	fdclose(fd1);
+	fdclose(fd2);
+	free(file_to);
 	return (0);
 }
