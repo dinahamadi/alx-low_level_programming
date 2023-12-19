@@ -12,14 +12,14 @@ int create_file(const char *filename, char *text_content)
 
 	if (filename == NULL || *filename == '\0')
 		return (-1);
-	fd = open(filename, O_TRUNC | O_CREAT | O_WRONLY | S_IRUSR | S_IWUSR);
+	fd = open(filename, O_TRUNC | O_EXCL  | O_CREAT | O_WRONLY | S_IRUSR | S_IWUSR);
 	if (fd == -1)
 		return (-1);
 	if (text_content == NULL || *text_content == '\0')
 		letters = 0;
 	else
 		letters = strlen(text_content);
-	nwrite = write(fd,text_content, letters);
+	nwrite = write(fd, text_content, letters);
 	if (nwrite == -1)
 	{
 		close(fd);
