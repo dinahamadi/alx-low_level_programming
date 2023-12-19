@@ -8,10 +8,9 @@
 int create_file(const char *filename, char *text_content)
 {
 	ssize_t fd;
-	char *buff;
 	ssize_t nwrite = 0, letters = 0;
 
-	if (filename == NULL)
+	if (filename == NULL || *filename == '\0')
 		return (-1);
 	fd = open(filename, O_TRUNC | O_CREAT | O_WRONLY | S_IRUSR | S_IWUSR);
 	if (fd == -1)
@@ -20,21 +19,12 @@ int create_file(const char *filename, char *text_content)
 		letters = 0;
 	else
 		letters = strlen(text_content);
-	buff = malloc(letters + 1);
-	if (buff == NULL)
-	{
-		close(fd);
-		return (-1);
-	}
-	strcpy(buff, text_content);
-	nwrite = write(fd, buff, letters);
+	nwrite = write(fd,text_content, letters);
 	if (nwrite == -1)
 	{
-		free(buff);
 		close(fd);
 		return (-1);
 	}
-	free(buff);
 	close(fd);
 	return (nwrite);
 }
