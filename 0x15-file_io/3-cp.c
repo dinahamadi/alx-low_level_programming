@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	{
 		nwrite = write(fd2, buff, nread);
 		nwrite == -1 ? fdclose(fd1), dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", argv[1]), exit(EXIT_WRITE) : (void)NULL;
+			"Error: Can't write to %s\n", argv[2]), exit(EXIT_WRITE) : (void)NULL;
 	}
 	nread == -1 ? fdclose(fd1), dprintf(STDERR_FILENO,
 		"Error: Can't read from file %s\n", argv[1]), exit(EXIT_READ) : (void)NULL;
