@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	fd2 = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY | O_APPEND, S_IRUSR | S_IWUSR
 		| S_IRGRP | S_IWGRP | S_IROTH);
 	fd2 == -1 ? fdclose(fd1), dprintf(STDERR_FILENO, "Error: Can't write to %s\n"
-		, argv[2]), exit(EXIT_WRITE) : (void)NULL;
+		, argv[1]), exit(EXIT_WRITE) : (void)NULL;
 	while ((nread = read(fd1, buff, 1024)) > 0)
 	{
 		nwrite = write(fd2, buff, nread);
