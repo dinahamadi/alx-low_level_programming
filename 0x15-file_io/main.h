@@ -1,6 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
-#define USAGE "Usage: cp file_from file_to"
+#define USAGE "Usage: cp file_from file_to\n"
 #define EXIT_USAGE 97
 #define EXIT_READ 98
 #define EXIT_WRITE 99
