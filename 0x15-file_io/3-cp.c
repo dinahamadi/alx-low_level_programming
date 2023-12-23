@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	ssize_t fd1, fd2, nwrite = 0, nread = 0;
 	char buff[1024];
 
-	argc != 3 ? printf(USAGE), exit(EXIT_USAGE) : (void)NULL;
+	argc != 3 ? dprintf(STDERR_FILENO, USAGE), exit(EXIT_USAGE) : (void)NULL;
 	fd1 = open(argv[1], O_RDONLY);
 	fd1 == -1 ? dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
 		argv[1]), exit(EXIT_READ) : (void)NULL;
@@ -44,5 +44,5 @@ int main(int argc, char *argv[])
 		"Error: Can't read from file %s\n", argv[1]), exit(EXIT_READ) : (void)NULL;
 	fdclose(fd1);
 	fdclose(fd2);
-	exit(EXIT_SUCCESS);
+	exit(0);
 }
